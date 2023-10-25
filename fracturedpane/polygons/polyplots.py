@@ -35,13 +35,18 @@ def binary_to_rgb(binary_encoding):
     h, s, v = binary_to_hsv(binary_encoding)
     return tuple(int(c * 255) for c in colorsys.hsv_to_rgb(h, s, v))
 
-def plot_polygons(polygons):
+def plot_polygons(polygons, show_unnamed = False):
     """Visualize polygons with color encoding and hover information."""
     
     fig = go.Figure()
     
     for poly in polygons:
+        
+        if not show_unnamed and (poly['concept'] == "" and not poly['encoding'] == ''):
+            continue
+        
         encoding = poly['encoding']
+        
  
         fill_color = 'rgb' + str(binary_to_rgb(encoding[::-1]))
         line_color = 'rgb' + str(darken_rgb(binary_to_rgb(encoding[::-1])))
@@ -53,6 +58,7 @@ def plot_polygons(polygons):
                                  fill='toself',
                                  fillcolor=fill_color,
                                  hoverinfo='text',
+                                 hoveron='fills',
                                  text=text,
                                  name=text,
                                  line_shape='linear',

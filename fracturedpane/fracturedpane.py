@@ -7,14 +7,18 @@ import math
 
 def compute_angle(point1, point2):
     """
-    Calculate the angle (in degrees) between two points using the arctangent function and normalize it.
+    Calculate the angle (in degrees) between two points using the arctangent function.
     """
     delta_y = point2[1] - point1[1]
     delta_x = point2[0] - point1[0]
     angle_rad = math.atan2(delta_y, delta_x)
     angle_deg = math.degrees(angle_rad)
-    normalized_angle = abs(angle_deg) % 180
-    return normalized_angle
+    
+    # Ensure angle is between 0 and 360
+    if angle_deg < 0:
+        angle_deg += 360
+    
+    return angle_deg
 
 
 def next_slicing_angle(fresh_cut):
@@ -83,7 +87,11 @@ if __name__ == "__main__":
         {"parent": "Science", "concept": "Physics"},
         {"parent": "Physics", "concept": "Quantum Mechanics"},
         {"parent": "Physics", "concept": "Relativity"},
-        {'parent': "Art", "concept": "Watercolor"}
+        {"parent": "Relativity", "concept": "General Relativity"},
+        {'parent': "Art", "concept": "Watercolor"},
+        {'parent': "Art", "concept": "Ceramics"},
+        {'parent': "Watercolor", "concept": "Wet-On-Dry"},
+        {'parent': "Watercolor", "concept": "Dry-On-Dry"}
         # ... you can add more belongings here
     ]
     
