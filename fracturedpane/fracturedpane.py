@@ -1,5 +1,6 @@
 import pandas as pd
-from polygons.polyslice import make_slice, plot_polygon
+from polygons.polyslice import make_slice
+from polygons.polyplots import plot_polygons
 from ontology.diff_ont import generate_ontology_tree, prepare_belonging_df
 
 import math
@@ -96,7 +97,4 @@ if __name__ == "__main__":
     resulting_polygons = slice_space(df)
     print(resulting_polygons)
     
-    import matplotlib.pyplot as plt
-    for polys in resulting_polygons:
-        plot_polygon(polys['polygon'], color='-b', fill_color='lightblue')
-    plt.show()
+    plot_polygons(resulting_polygons)
