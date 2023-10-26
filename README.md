@@ -51,7 +51,7 @@ plotly_polygons(resulting_polygons)
 
 This will generate an interactive plotly graphic showing our Fractured Pane:
 
-![](https://github.com/ap0phasi/FracturedPanePy/media/FracturedPane_example.gif)
+![Demo](https://github.com/ap0phasi/FracturedPanePy/blob/main/media/FracturedPane_example.gif)
 
 By default, unnamed concepts will not be rendered, allowing for us to see the layering of concepts with slices. 
 
