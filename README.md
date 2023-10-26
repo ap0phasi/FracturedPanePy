@@ -1,4 +1,7 @@
 # Fractured Pane Graph Generator
+>A Python project for visualizing hierarchical data through interactive polygon slicing and coloring, based on binary tree encoding and differential ontology.
+
+![Fractured Pane](https://github.com/ap0phasi/FracturedPanePy/blob/main/media/FracturedPane.png)
 
 Fractured Panes are a way of visualizing hierarchical information. Conceptually they work similarly to a tree map with a key difference being the rotation of each slice as the hierarchy is constructed changes to allow for easier visualization of the belongings of sets. The fundamental feature that distinguishes Fractured Panes from treemaps and their alternatives is that Fractured Panes, relying on slices for their visualization, exclusively render data organized as a differential ontology.
 
