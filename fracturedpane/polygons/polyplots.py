@@ -35,7 +35,7 @@ def binary_to_rgb(binary_encoding):
     h, s, v = binary_to_hsv(binary_encoding)
     return tuple(int(c * 255) for c in colorsys.hsv_to_rgb(h, s, v))
 
-def plot_polygons(polygons, show_unnamed = False):
+def plotly_polygons(polygons, show_unnamed = False):
     """Visualize polygons with color encoding and hover information."""
     
     fig = go.Figure()

@@ -1,9 +1,10 @@
 import pandas as pd
 from polygons.polyslice import make_slice
-from polygons.polyplots import plot_polygons
+from polygons.polyplots import plotly_polygons
 from ontology.diff_ont import generate_ontology_tree, prepare_belonging_df
 
 import math
+import random
 
 def compute_angle(point1, point2):
     """
@@ -44,7 +45,7 @@ def slice_space(df):
     polygons = [{'encoding': '', 'polygon': bounding_rect, 'concept': '', 'fresh_cut': [(0,0), (10,0)]}]
 
     angle = 90
-    location = 0.2
+    location = random.random() * 0.6 + 0.2
     # Slice the initial polygon
     candidate = ''
     new_poly_0, new_poly_1, new_fresh_cut = make_slice(polygons[0]['polygon'], polygons[0]['fresh_cut'], angle, location)
@@ -69,7 +70,7 @@ def slice_space(df):
             print(compute_angle(fresh_cut[0], fresh_cut[1]))
             angle = next_slicing_angle(fresh_cut)
             print(angle)
-            location += 0.05
+            location = random.random() * 0.6 + 0.2
             
             # Slice the polygon
             polygon_0, polygon_1, new_fresh_cut = make_slice(parent_polygon, fresh_cut, angle, location) 
@@ -105,4 +106,4 @@ if __name__ == "__main__":
     resulting_polygons = slice_space(df)
     print(resulting_polygons)
     
-    plot_polygons(resulting_polygons)
+    plotly_polygons(resulting_polygons)
